@@ -33,7 +33,8 @@ The intent is to use satire to provoke conversation about tradition, stereotypes
 
 ## Live Demo
 
-🔗 **[DahejWaleBabu Live](https://dahej-wale-babu.vercel.app/)**
+🔗 <a href="https://dahej-wale-babu.vercel.app/" target="_blank">**DahejWaleBabu Live**</a>
+
 
 ---
 
