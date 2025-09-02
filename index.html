@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>DWB | Dowry Calculator</title>
+    <meta name="description" content="Find out your worth – or how much you're being priced at!" />
+    <meta name="author" content="Dowry Dollar Detector" />
+
+    <meta property="og:title" content="Dowry Dollar Detector" />
+    <meta property="og:description" content="Find out your worth – or how much you're being priced at!" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+     <!-- Load TensorFlow.js and BlazeFace model -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+    <!-- Adding premium fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Adding Gemini AI script --> <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- Add Gemini API script -->
+    <script src="https://cdn.jsdelivr.net/npm/google-generative-ai@latest"></script>
+    <script src="https://www.gstatic.com/ai/gen/js/api_client.js"></script>
+    <!-- Adding Font Awesome for icons -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+
+  <body>
+    <!-- Add this right after the opening <body> tag -->
+<div class="preloader">
+  <div class="money-rain-container"></div>
+  
+  <div class="loader-content">
+    <h1 class="loader-title">Dahej Wale Babu</h1>
+    <p class="loader-subtitle">Exposing dowry through satire</p>
+    
+    <div class="cube-container">
+      <div class="cube">
+        <div class="cube-face front">Calculator</div>
+        <div class="cube-face back">Stories</div>
+        <div class="cube-face right">Quiz</div>
+        <div class="cube-face left">Facts</div>
+        <div class="cube-face top">Certificate</div>
+        <div class="cube-face bottom">Chatbot</div>
+      </div>
+    </div>
+    
+    <div class="loader-progress">
+      <div class="loader-bar"></div>
+      <span class="loader-percentage">0%</span>
+    </div>
+  </div>
+</div>
+    <div class="app">
+      <!-- Header Section -->
+      <header class="site-header">
+        <div class="logo">
+          <span class="logo-icon">💸</span>
+          <span class="logo-text">Dahej Wale Babu</span>
+        </div>
+        <nav class="main-nav">
+          <div class="nav-container">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="#calculator" class="nav-link"><i class="fas fa-calculator"></i> Calculator</a></li>
+              <li class="nav-item"><a href="#leaderboard" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+              <li class="nav-item"><a href="#dahej-stories" class="nav-link"><i class="fas fa-comment-dots"></i> Stories</a></li>
+              <li class="nav-item"><a href="#quiz" class="nav-link"><i class="fas fa-question-circle"></i> Quiz</a></li>
+              <li class="nav-item"><a href="#fun" class="nav-link"><i class="fas fa-laugh-beam"></i> Fun Zone</a></li>
+              <li class="nav-item"><a href="#pledge" class="nav-link"><i class="fas fa-hand-holding-heart"></i> Pledge</a></li>
+            </ul>
+          </div>
+          <div class="nav-actions">
+            <div class="theme-toggle">
+              <button id="themeToggle" class="theme-toggle-btn">
+                <span class="toggle-icon">💰</span>
+                <span class="toggle-text">Gold Mode</span>
+              </button>
+            </div>
+            <button class="mobile-menu-btn">
+              <span class="menu-icon"></span>
+            </button>
+          </div>
+        </nav>
+      </header>
+      
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        
+        <div class="hero-content">
+          <h1 class="hero-title">Find out your <span class="highlight">worth</span> – or how much you're being <span class="highlight">priced</span> at!</h1>
+          <p class="hero-subtitle">A satirical take on the <span class="highlight">dowry system</span>. Calculate your hypothetical "market value" based on society's problematic standards!</p>
+          <div class="hero-description">
+            <p>We're using humor to highlight a serious issue. This calculator satirizes how the dowry system reduces people to commodities with <strong>price tags</strong>. Let's laugh at the absurdity while raising <strong>awareness</strong>!</p>
+          </div>
+          <button class="cta-button" onclick="scrollToCalculator()">Calculate Your Dowry</button>
+        </div>
+        
+        <div class="bento-grid">
+          <div class="bento-item bento-item-1" data-delay="0.1">
+            <div class="bento-icon">💰</div>
+            <h3>Satirical Calculator</h3>
+            <p>Find your "market rate" based on ridiculous societal standards</p>
+          </div>
+          <div class="bento-item bento-item-2" data-delay="0.3">
+            <div class="bento-icon">🎭</div>
+            <h3>AI Chatbot</h3>
+            <p>Role-play dowry negotiations to see how absurd they really are</p>
+          </div>
+          <div class="bento-item bento-item-3" data-delay="0.5">
+            <div class="bento-icon">📊</div>
+            <h3>Leaderboard</h3>
+            <p>See who's "worth" the most in this ridiculous marketplace</p>
+          </div>
+         
+          <div class="bento-item bento-item-5 featured-image" data-delay="0.2">
+            <img src="dowry.png" alt="dowry" />
+            <div class="image-overlay">
+              <p>Dowry isn't a tradition, it's a transaction. Let's end it.</p>
+            </div>
+          </div>
+          <div class="bento-item bento-item-6" data-delay="0.4">
+            <div class="stat-counter">
+              <span class="counter-number" data-target="5235">0</span>+
+            </div>
+            <p>Dowry-free pledges taken</p>
+          </div>
+        </div>
+      </section>
+      
+      
+      <!-- Calculator Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">Calculate your worth—or better, realize no one has one!</div>
+        <div class="tagline-line"></div>
+      </div>
+      <section id="calculator" class="calculator-section">
+        <h2>Dowry Calculator</h2>
+        <p class="subtitle">Fill out the form below to see what society might "price" you at</p>
+        
+        <div class="calculator-container">
+          <form id="dowryForm">
+            <!-- Personal Details -->
+            <div class="form-section">
+              <h3>Personal Details</h3>
+              <div class="form-group">
+                <label for="name">Name (Optional)</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+              </div>
+              
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="100" placeholder="25" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="form-section">
+              <h3>Education</h3>
+              <div class="form-group">
+                <label for="education">Educational Qualification</label>
+                <select id="education" name="education" required>
+                  <option value="">Select education</option>
+                  <option value="none">No Education</option>
+                  <option value="school">School (10th/12th)</option>
+                  <option value="graduate">Graduate</option>
+                  <option value="postgraduate">Postgraduate</option>
+                  <option value="phd">Ph.D.</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Income & Job Profile -->
+            <div class="form-section">
+              <h3>Income & Job Profile</h3>
+              <div class="form-group">
+                <label for="jobType">Job Type</label>
+                <select id="jobType" name="jobType" required>
+                  <option value="">Select job type</option>
+                  <option value="unemployed">Unemployed</option>
+                  <option value="private">Private Job</option>
+                  <option value="government">Government Job</option>
+                  <option value="business">Businessman</option>
+                </select>
+              </div>
+              
+              <div class="form-group" id="salaryGroup" style="display: none;">
+                <label for="salary">Monthly Salary (in ₹)</label>
+                <input type="number" id="salary" name="salary" min="0" placeholder="200000">
+              </div>
+            </div>
+            
+            <!-- Physical Attributes -->
+            <div class="form-section">
+              <h3>Physical Attributes</h3>
+              <div class="form-group">
+                <label for="height">Height (in cm)</label>
+                <input type="number" id="height" name="height" min="100" max="250" placeholder="170" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="skinTone">Skin Tone</label>
+                <select id="skinTone" name="skinTone" required>
+                  <option value="">Select skin tone</option>
+                  <option value="veryFair">Very Fair</option>
+                  <option value="fair">Fair</option>
+                  <option value="medium">Medium</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="fitness">Fitness Level</label>
+                <select id="fitness" name="fitness" required>
+                  <option value="">Select fitness level</option>
+                  <option value="athletic">Athletic</option>
+                  <option value="fit">Fit</option>
+                  <option value="average">Average</option>
+                  <option value="unfit">Unfit</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Family Background -->
+            <div class="form-section">
+              <h3>Family Background</h3>
+              <div class="form-group">
+                <label for="parentsJob">Parents' Profession</label>
+                <select id="parentsJob" name="parentsJob" required>
+                  <option value="">Select profession</option>
+                  <option value="business">Business</option>
+                  <option value="government">Government</option>
+                  <option value="corporate">Corporate</option>
+                  <option value="other">Others</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="house">Housing</label>
+                <select id="house" name="house" required>
+                  <option value="">Select housing</option>
+                  <option value="owned">Own House</option>
+                  <option value="rented">Rented</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="cars">Number of Cars</label>
+                <input type="number" id="cars" name="cars" min="0" max="100" placeholder="2" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="siblings">Number of Siblings</label>
+                <input type="number" id="siblings" name="siblings" min="0" max="10" placeholder="1" required>
+              </div>
+            </div>
+            
+            <!-- Location Preference -->
+            <div class="form-section">
+              <h3>Location Preference</h3>
+              <div class="form-group">
+                <label for="location">Living Area</label>
+                <select id="location" name="location" required>
+                  <option value="">Select area</option>
+                  <option value="rural">Rural</option>
+                  <option value="urban">Urban</option>
+                  <option value="metro">Metro City</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Extra Perks -->
+            <div class="form-section">
+              <h3>Extra Perks</h3>
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="foreign" name="foreign">
+                <label for="foreign">Foreign Citizenship/NRI</label>
+              </div>
+              
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="talent" name="talent">
+                <label for="talent">Special Talents (Music, Sports, etc.)</label>
+              </div>
+              
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="smoke" name="smoke">
+                <label for="smoke">Smokes</label>
+              </div>
+              
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="drink" name="drink">
+                <label for="drink">Drinks Alcohol</label>
+              </div>
+            </div>
+            
+            <button type="submit" class="calculate-button">Calculate My Dowry</button>
+          </form>
+        </div>
+      </section>
+      
+      <!-- Results Modal -->
+      <div id="resultsModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Your Dowry Calculation Results</h2>
+          <div class="result-container">
+            <div class="result-amount">
+              <span id="rupeeSymbol">₹</span><span id="dowryAmount">0</span>
+            </div>
+            <p id="resultMessage">Based on society's problematic standards...</p>
+            
+            <div class="result-breakdown">
+              <h3>Breakdown</h3>
+              <ul id="breakdownList">
+                <!-- Breakdown items will be added here by JavaScript -->
+              </ul>
+            </div>
+            
+            <div class="sharing-options">
+              <h3>Share These Results</h3>
+              <div class="share-buttons">
+                <button onclick="shareResult('whatsapp')" class="share-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></button>
+                <button onclick="shareResult('facebook')" class="share-btn facebook"><i class="fa-brands fa-facebook-f"></i></button>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Leaderboard Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">Top rebels against dahej drama!</div>
+        <div class="tagline-line"></div>
+      </div>
+      <section id="leaderboard" class="leaderboard-section">
+        <h2>Rate My Dahej Leaderboard</h2>
+        <p class="subtitle">See how you stack up in the dowry marketplace 💅</p>
+        
+        <div class="leaderboard-container">
+          <div class="leaderboard-tabs">
+            <button class="tab-btn active" data-tab="top-grooms">Top Grooms</button>
+            <button class="tab-btn" data-tab="budget-brides">Budget Brides</button>
+            <button class="tab-btn" data-tab="dowry-free">Dowry-Free Warriors</button>
+          </div>
+          
+          <div class="tab-content active" id="top-grooms">
+            <div class="leaderboard-header">
+              <span>Rank</span>
+              <span>Name</span>
+              <span>Dowry Value</span>
+              <span>Badge</span>
+            </div>
+            <div class="leaderboard-list">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+          
+          <div class="tab-content" id="budget-brides">
+            <div class="leaderboard-header">
+              <span>Rank</span>
+              <span>Name</span>
+              <span>Dowry Value</span>
+              <span>Badge</span>
+            </div>
+            <div class="leaderboard-list">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+          
+          <div class="tab-content" id="dowry-free">
+            <div class="leaderboard-header">
+              <span>Rank</span>
+              <span>Name</span>
+              <span>Reason</span>
+              <span>Badge</span>
+            </div>
+            <div class="leaderboard-list">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+          
+          <div class="share-your-score">
+            <h3>Not on the leaderboard yet?</h3>
+            <p>Calculate your dowry value and submit your score!</p>
+            <button class="leaderboard-cta" onclick="scrollToCalculator()">Join the Leaderboard</button>
+          </div>
+        </div>
+      </section>
+           <!-- Awareness Section -->
+           <div class="tagline-separator">
+            <div class="tagline-line"></div>
+            <div class="tagline-text">From ancient curses to modern causes—know the dahej daastan.</div>
+            <div class="tagline-line"></div>
+          </div>
+           <section id="awareness" class="awareness-section">
+            <h2 class="section-title">Dowry Awareness</h2>
+            <p class="subtitle">Understanding the history, impact, and legal framework of dowry practices</p>
+            
+            <div class="bento-grid-container">
+       <!-- History Card -->
+    <div class="bento-card large" data-aos="fade-up">
+      <div class="card-image">
+        <img src="history.png" alt="Historical dowry artifacts">
+        <div class="image-overlay"></div>
+        <div class="card-badge">Historical Context</div>
+      </div>
+      <div class="card-content">
+        <h3 class="fancy-heading">History of Dowry</h3>
+        <p class="intro-text">The dowry system began as a way to provide <span class="highlight-keyword">financial security</span> to women but turned into a <span class="highlight-keyword negative">social evil</span> that commodifies people. Originally meant as <span class="highlight-keyword">"streedhan"</span> (woman's wealth), it has now become a <span class="highlight-keyword negative">price tag</span> on marriages. The practice has evolved dramatically over centuries, shifting from a <span class="highlight-keyword positive">voluntary gift</span> to an <span class="highlight-keyword negative">expected transaction</span>.</p>
+        
+        <div class="timeline-container">
+          <h4 class="timeline-heading">Evolution Through Time</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Ancient Times <span class="date-range">(1500 BCE - 500 CE)</span></span>
+              <p><span class="era-highlight">Voluntary gifts</span> to daughters as security. In Vedic period, <span class="highlight-keyword">"Kanyadan"</span> (gift of a virgin) was accompanied by <span class="highlight-keyword">"Vardakshina"</span> - gifts to the bride that remained her property. These gifts served as financial security for women who had limited inheritance rights.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Medieval Period <span class="date-range">(500 CE - 1700 CE)</span></span>
+              <p>Evolved into <span class="era-highlight">status symbol</span> among royalty. Royal families used dowry to forge political alliances, with the size of dowry reflecting family status. The practice spread to lower castes as they attempted to emulate upper-caste customs, a phenomenon known as <span class="highlight-keyword">"Sanskritization."</span></p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Colonial Era <span class="date-range">(1700s - 1947)</span></span>
+              <p>Became more <span class="era-highlight negative">rigid and mandatory</span>. British colonial policies reinforced patriarchal structures and economic disparities. The codification of Hindu law further marginalized women's property rights. By the late 19th century, dowry had transformed from a voluntary gift to an expected payment, with increasing financial burden on bride's families.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Modern Day <span class="date-range">(1947 - Present)</span></span>
+              <p><span class="era-highlight negative">Persists despite legal prohibition</span>. Despite the Dowry Prohibition Act of 1961, the practice continues in various forms. Consumerism and materialism have further commercialized marriage, with dowry demands now including modern luxuries like cars, appliances, and property. The practice has adapted to circumvent legal restrictions by disguising demands as "gifts."</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="regional-variations">
+          <h4 class="variations-heading">Regional Variations</h4>
+          <div class="variations-content">
+            <div class="variation-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <p>Dowry practices vary significantly across India. <span class="region">Northern states</span> typically have <span class="highlight-keyword negative">higher dowry demands</span>, while <span class="region">southern states</span> like Kerala historically practiced <span class="highlight-keyword positive">matrilineal systems</span>. <span class="region">Urban areas</span> often see "modernized" dowry in the form of education expenses and lavish weddings, while <span class="region">rural areas</span> maintain more traditional practices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+         <!-- Legal Framework Card -->
+    <div class="bento-card medium" data-aos="fade-up" data-aos-delay="100">
+      <div class="card-content">
+        <h3 class="section-heading">Legal Framework</h3>
+        <p class="law-intro">India has established comprehensive legislation to combat dowry practices:</p>
+        <div class="legal-framework">
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-gavel"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">Dowry Prohibition Act, 1961</h4>
+              <p>Giving or taking dowry is punishable with <span class="highlight-text">5+ years imprisonment</span> and fines up to <span class="highlight-text">₹15,000</span> or the value of dowry.</p>
+              <ul class="law-points">
+                <li>Applies to all communities across India</li>
+                <li>Covers both direct and indirect demands</li>
+                <li>Protects gifts given without demand or condition</li>
+              </ul>
+            </div>
+          </div>
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-balance-scale"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">Section 304B IPC</h4>
+              <p>Addresses dowry death with minimum <span class="highlight-text">7 years imprisonment</span>, can extend to <span class="highlight-text">life imprisonment</span>.</p>
+              <ul class="law-points">
+                <li>Applies to deaths within 7 years of marriage</li>
+                <li>Creates presumption of dowry death in suspicious cases</li>
+                <li>Shifts burden of proof to the accused</li>
+              </ul>
+            </div>
+          </div>
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">Protection of Women from Domestic Violence Act, 2005</h4>
+              <p>Provides additional protection against <span class="highlight-text">dowry-related harassment</span>.</p>
+              <ul class="law-points">
+                <li>Offers immediate relief including protection orders</li>
+                <li>Covers physical, emotional, and economic abuse</li>
+                <li>Provides right to residence in shared household</li>
+              </ul>
+            </div>
+          </div>
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-handcuffs"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">Section 498A IPC</h4>
+              <p>Criminalizes <span class="highlight-text">cruelty by husband or relatives</span> toward a woman.</p>
+              <ul class="law-points">
+                <li>Covers mental and physical harassment for dowry</li>
+                <li>Non-bailable and cognizable offense</li>
+                <li>Punishment up to 3 years with fine</li>
+              </ul>
+            </div>
+          </div>
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-file-contract"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">Dowry Prohibition (Maintenance of Lists of Presents) Rules, 1985</h4>
+              <p>Requires <span class="highlight-text">documentation of all wedding gifts</span>.</p>
+              <ul class="law-points">
+                <li>Mandatory list of all gifts received at marriage</li>
+                <li>Must include description, value, and recipient</li>
+                <li>Signed by both bride and groom</li>
+              </ul>
+            </div>
+          </div>
+          <div class="law-item">
+            <div class="law-icon"><i class="fas fa-phone-volume"></i></div>
+            <div class="law-details">
+              <h4 class="law-title">National Commission for Women</h4>
+              <p>Provides <span class="highlight-text">support and resources</span> for dowry victims.</p>
+              <ul class="law-points">
+                <li>24/7 helpline: 1091 for emergency assistance</li>
+                <li>Legal aid and counseling services</li>
+                <li>Investigation of specific complaints</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="law-footer">
+          <a href="https://www.indiacode.nic.in/bitstream/123456789/5556/1/dowry_prohibition.pdf" class="law-link" target="_blank">Learn more about your legal rights <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+              
+             <!-- Statistics Card -->
+    <div class="bento-card medium" data-aos="fade-up" data-aos-delay="200">
+      <div class="card-content">
+        <h3 class="stats-heading">Alarming Dowry Statistics</h3>
+        <p class="stats-intro">The numbers tell a disturbing story about dowry in modern India</p>
+        
+        <div class="stats-container">
+          <div class="stat-item severe">
+            <div class="stat-icon"><i class="fas fa-skull"></i></div>
+            <div class="stat-number-container">
+              <div class="stat-number" data-count="6900">0</div>
+            </div>
+            <div class="stat-label">Dowry deaths reported in 2022</div>
+            <div class="stat-bar"></div>
+          </div>
+          
+          <div class="stat-item critical">
+            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="stat-number-container">
+              <div class="stat-number" data-count="24">0</div>
+            </div>
+            <div class="stat-label">Women harassed every hour for dowry</div>
+            <div class="stat-bar"></div>
+          </div>
+          
+          <div class="stat-item warning">
+            <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+            <div class="stat-number-container">
+              <div class="stat-number" data-count="93">0</div>
+              <div class="stat-suffix">%</div>
+            </div>
+            <div class="stat-label">Percentage of marriages involving dowry</div>
+            <div class="stat-bar"></div>
+          </div>
+          
+          <div class="stat-item caution">
+            <div class="stat-icon"><i class="fas fa-coins"></i></div>
+            <div class="stat-number-container">
+              <div class="stat-number" data-count="4">0</div>
+            </div>
+            <div class="stat-label">Years of income spent on average dowry</div>
+            <div class="stat-bar"></div>
+          </div>
+        </div>
+        
+        <div class="stats-source">
+          <p>Source: National Crime Records Bureau & Research Studies</p>
+          <a href="https://timesofindia.indiatimes.com/readersblog/politiclaw/dowry-and-dowry-death-42574/" class="stats-link" target="_blank">View detailed report <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </div>
+              <!-- Real-Life Impact Card -->
+              <div class="bento-card medium" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-image">
+                  <img src="https://www.louisgoodman.com/wp-content/uploads/2024/04/pexels-karolina-grabowska-4379912-950x550.webp" alt="Women empowerment">
+                  <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                  <h3>Real-Life Impact</h3>
+                  <p>Thousands of women face harassment, domestic violence, and even death due to dowry demands. Many families go into debt trying to meet these expectations, perpetuating a cycle of financial distress.</p>
+                  <ul class="impact-list">
+                    <li><i class="fas fa-exclamation-triangle"></i> Financial burden on bride's family</li>
+                    <li><i class="fas fa-heart-broken"></i> Psychological trauma and stress</li>
+                    <li><i class="fas fa-home"></i> Homelessness after marriage disputes</li>
+                    <li><i class="fas fa-user-injured"></i> Physical and emotional abuse</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- Modern Forms Card -->
+    <div class="bento-card small" data-aos="fade-up" data-aos-delay="400">
+      <div class="card-image">
+        <img src="https://en-media.thebetterindia.com/uploads/2019/02/gift.jpeg" alt="Women empowerment">
+        <div class="image-overlay"></div>
+      </div>
+      <div class="card-content">
+        <h3>Modern Forms of Dowry</h3>
+        <div class="modern-forms">
+          <div class="form-item">
+            <i class="fas fa-gift modern-icon gift-icon"></i>
+            <p>"Gifts" to circumvent legal restrictions</p>
+          </div>
+          <div class="form-item">
+            <i class="fas fa-plane modern-icon plane-icon"></i>
+            <p>Expensive destination weddings</p>
+          </div>
+          <div class="form-item">
+            <i class="fas fa-car modern-icon car-icon"></i>
+            <p>Luxury vehicles as "presents"</p>
+          </div>
+          <div class="form-item">
+            <i class="fas fa-university modern-icon edu-icon"></i>
+            <p>Educational expenses for groom</p>
+          </div>
+          <div class="form-item">
+            <i class="fas fa-home modern-icon home-icon"></i>
+            <p>Property or real estate investments</p>
+          </div>
+          <div class="form-item">
+            <i class="fas fa-briefcase modern-icon business-icon"></i>
+            <p>Business funding or startup capital</p>
+          </div>
+        </div>
+      </div>
+    </div>
+              
+              <!-- Solutions Card -->
+              <div class="bento-card small" data-aos="fade-up" data-aos-delay="500">
+                <div class="card-image">
+                  <img src="https://thecolumnofcurae.wordpress.com/wp-content/uploads/2021/09/justice-photo.jpg" alt="Women empowerment">
+                  <div class="image-overlay"></div>
+                </div>
+                <div class="card-content">
+                  <h3 class="solution-heading">Breaking the Cycle</h3>
+                  <p class="solution-intro">Practical approaches to end the dowry system</p>
+                <div class="solutions">
+                  <div class="solution-item">
+                    <div class="solution-icon education">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="solution-details">
+                      <h4>Education</h4>
+                      <p>Awareness campaigns in schools and communities</p>
+                    </div>
+                  </div>
+                  <div class="solution-item">
+                    <div class="solution-icon community">
+                      <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="solution-details">
+                      <h4>Community Support</h4>
+                      <p>Networks to empower women facing dowry pressure</p>
+                    </div>
+                  </div>
+                  <div class="solution-item">
+                    <div class="solution-icon economic">
+                      <i class="fas fa-female"></i>
+                    </div>
+                    <div class="solution-details">
+                      <h4>Women's Independence</h4>
+                      <p>Financial literacy and career development programs</p>
+                    </div>
+                  </div>
+                  <div class="solution-item">
+                    <div class="solution-icon reporting">
+                      <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="solution-details">
+                      <h4>Reporting Systems</h4>
+                      <p>Accessible helplines and support services</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Download Section -->
+            <div class="download-section" data-aos="zoom-in">
+              <h3>Download Educational Resources</h3>
+              <p>Share these resources to spread awareness about dowry practices and prevention</p>
+              <div class="download-buttons">
+                <a href="Indian-Dowry-System-From-Tradition-to-Tragedy.pptx" download class="download-btn ppt-btn">
+                  <i class="fas fa-file-powerpoint"></i>
+                  <span>Download Presentation (PPT)</span>
+                </a>
+                <a href="dowry_prohibition.pdf" download class="download-btn pdf-btn">
+                  <i class="fas fa-file-pdf"></i>
+                  <span>Download Infographic (PDF)</span>
+                </a>
+                <a href="dowry_complaint_template.pdf" download class="download-btn guide-btn">
+                  <i class="fas fa-file-alt"></i>
+                  <span>Download letter Guide (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+   
+      
+      <!-- Fun Zone Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">Craft the craziest dowry demands (and cringe at them later)!</div>
+        <div class="tagline-line"></div>
+      </div>
+      <section id="fun" class="fun-section">
+        <h2>The Fun Zone</h2>
+        <div class="fun-container">
+          <div class="meme-generator">
+            <h3>Dowry Demand Generator</h3>
+            <p>Generate a humorous "dowry demand list" that highlights the absurdity of the practice</p>
+            <div class="generator-inputs">
+              <div class="form-group">
+                <label for="demandName">Your Name (Optional)</label>
+                <input type="text" id="demandName" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label>Style</label>
+                <select id="demandStyle">
+                  <option value="extravagant">Ultra Extravagant</option>
+                  <option value="bougie">Bougie</option>
+                  <option value="modest">Suspiciously Modest</option>
+                  <option value="random" selected>Random</option>
+                </select>
+              </div>
+            </div>
+            <button onclick="generateDowryList()" class="fun-button">Generate Demand List</button>
+            <div id="generatedList" class="generated-content"></div>
+            
+            <div class="share-demand" style="display:none;">
+              <h4>Share this outrageous demand!</h4>
+              <div class="share-buttons">
+                <button onclick="shareDemand('whatsapp')" class="share-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></button>
+                <button onclick="shareDemand('facebook')" class="share-btn facebook"><i class="fa-brands fa-facebook-f"></i></button>
+              
+              </div>
+            </div>
+          </div>
+          
+          <div class="meme-gallery">
+            <h3>Dowry Memes</h3>
+            <p>A light-hearted take on a serious issue</p>
+            <div class="memes-container">
+              <div class="meme">
+                <p class="meme-text">"When groom's family says 'Bas ek simple shaadi chahte hain' but show up with a luxury car wishlist."</p>
+              </div>
+              
+              <div class="meme">
+                <p class="meme-text">"Dad: Beta padhai pe dhyan do. Also Dad at wedding: BCom pass ladki ho toh bhi chalega, bas 3BHK mil jaye."</p>
+              </div>
+              
+              <div class="meme">
+                <p class="meme-text">"Shaadi discussions be like: Rishta is arranged... but dowry is auctioned."</p>
+              </div>
+              
+              <!-- Dark Memes Start -->
+              <div class="meme">
+                <p class="meme-text">"Dowry is illegal. Unless, of course, you call it 'gifts from the bride’s side'. 😏"</p>
+              </div>
+              
+              <div class="meme">
+                <p class="meme-text">"When groom's dad says 'hum kuch nahi lenge'... but sends his son as a price tag."</p>
+              </div>
+              
+              <div class="meme">
+                <p class="meme-text">"She married the love of her life. He married a furniture set, washing machine, and a Honda City."</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+         <!--dowry face analyser-->
+         <div class="tagline-separator">
+          <div class="tagline-line"></div>
+          <div class="tagline-text">What does your face say? Groomzilla or gold-digger alert?</div>
+          <div class="tagline-line"></div>
+        </div>
+        
+         <section class="face-analyzer-section" id="face-analyzer">
+          <h2 class="section-title">Try Our Satirical Tool</h2>
+   
+          
+          <div class="container">
+            <header>
+              <h1>Dowry AI Face Analyzer</h1>
+              <p class="tagline">Revolutionary AI technology to estimate your dowry value</p>
+              <div class="disclaimer">
+                This is a satirical application and should not be taken seriously. It does not promote or endorse dowry practices.
+              </div>
+            </header>
+            
+            <div class="camera-container">
+              <video id="video" playsinline autoplay></video>
+              <canvas id="canvas"></canvas>
+            </div>
+            
+            <div class="controls">
+              <button id="startBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 7l-7 5 7 5V7z"></path>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                Start Camera
+              </button>
+              <button id="captureBtn" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Analyze Face
+              </button>
+              <button id="uploadBtn" class="upload-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Upload Image
+              </button>
+              <input type="file" id="fileInput" accept="image/*">
+            </div>
+            
+            <div class="keyboard-shortcuts">
+              Keyboard shortcuts: <span>S</span> Start/Stop camera • <span>C</span> Capture • <span>U</span> Upload • <span>R</span> Reset
+            </div>
+            
+            <div class="error-message" id="errorMessage"></div>
+            
+            <div class="loading" id="loading">
+              <div class="loading-spinner"></div>
+              <p>Analyzing facial features...</p>
+            </div>
+            
+            <div class="results-container" id="results">
+              <div class="result-header">
+                <h2>Analysis Results</h2>
+                <p>Based on advanced AI facial recognition</p>
+              </div>
+              
+              <div class="dowry-amount" id="dowryAmount"></div>
+              
+              <div class="metrics-container" id="metricsContainer">
+                <!-- Metrics will be added dynamically -->
+              </div>
+              
+              <div style="text-align: center; margin-top: 20px;">
+                <button id="resetBtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                  </svg>
+                  Analyze Another Face
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      <!-- Dowry-Free Pledge Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">Say ‘no’ to dahej—sign with sass!</div>
+        <div class="tagline-line"></div>
+      </div>
+    <section id="pledge" class="pledge-section">
+      <h2>Take the Dowry-Free Pledge</h2>
+      <p class="subtitle">Join the movement against dowry and become a Dowry-Free Hero!</p>
+      
+      <div class="pledge-container">
+          <div class="pledge-form">
+              <h3>Pledge Certificate</h3>
+              <div class="pledge-certificate" id="certificate">
+                  <div class="certificate-content">
+                      <div class="certificate-header">
+                          <h4>Certificate of Commitment</h4>
+                          <div class="certificate-icon">🏆</div>
+                      </div>
+                      <p>This certifies that</p>
+                      <div class="certificate-name" id="pledgeName">Your Name</div>
+                      <p>has proudly taken the pledge to reject dowry in all its forms and promote equality in marriage.</p>
+                      <div class="certificate-date">Date: <span id="pledgeDate"></span></div>
+                  </div>
+              </div>
+              
+              <div class="pledge-inputs">
+                  <div class="form-group">
+                      <label for="nameForPledge">Your Name</label>
+                      <input type="text" id="nameForPledge" placeholder="Enter your name">
+                  </div>
+                  <div class="form-group checkbox-group">
+                    <input type="checkbox" id="agreementPledge">
+                    <label for="agreementPledge">
+                        I pledge to reject dowry in all its forms and to promote equality in marriage.
+                    </label>
+                </div>
+                  <button id="takePledge" class="pledge-btn" disabled>Take the Pledge</button>
+              </div>
+          </div>
+          
+          <div class="pledge-wall">
+              <h3>Wall of Heroes</h3>
+              <p>Join these brave individuals who have taken a stand against dowry:</p>
+              <div class="heroes-list" id="heroesList">
+                  <div class="hero-item">
+                      <span class="hero-name">Rahul Sharma</span>
+                      <span class="hero-badge">Dowry-Free Hero</span>
+                  </div>
+                  <div class="hero-item">
+                      <span class="hero-name">Priya Singh</span>
+                      <span class="hero-badge">Dowry-Free Hero</span>
+                  </div>
+                  <div class="hero-item">
+                      <span class="hero-name">Ajay Patel</span>
+                      <span class="hero-badge">Dowry-Free Hero</span>
+                  </div>
+              </div>
+              
+              <div class="share-pledge">
+                  <h4>Share your pledge</h4>
+                  <p>Let others know you've taken a stand against dowry!</p>
+                
+              </div>
+          </div>
+      </div>
+  </section>
+     
+      <!-- Dowry Scam Alert Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">Red flags > red sarees. Spot the scam!</div>
+        <div class="tagline-line"></div>
+      </div>
+      <section id="scam-alert" class="scam-alert-section">
+        <h2>Dowry Scam Alert</h2>
+        <p class="subtitle">Detect red flags in marriage proposals with our AI risk analyzer</p>
+        
+        <div class="scam-alert-container">
+          <div class="scam-detector">
+            <h3>Fake Proposal Detector</h3>
+            <div class="detector-form">
+              <div class="form-group">
+                <label for="proposalSalary">Groom/Bride Monthly Salary (in ₹)</label>
+                <input type="number" id="proposalSalary" min="0">
+              </div>
+              <div class="form-group">
+                <label for="proposalJob">Job Type</label>
+                <select id="proposalJob">
+                  <option value="">Select job type</option>
+                  <option value="private">Private Job</option>
+                  <option value="government">Government Job</option>
+                  <option value="business">Business</option>
+                  <option value="unemployed">Unemployed</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="proposalDemands">Demands/Expectations</label>
+                <textarea id="proposalDemands" placeholder="Enter any demands or expectations they've mentioned..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="proposalRelatives">Family Involvement Level</label>
+                <select id="proposalRelatives">
+                  <option value="low">Low (Only parents involved)</option>
+                  <option value="medium">Medium (Extended family partially involved)</option>
+                  <option value="high">High (Entire family involved in discussions)</option>
+                </select>
+              </div>
+              <button id="analyzeProposal" class="analyze-btn">Analyze Risk</button>
+            </div>
+          </div>
+          
+          <div class="scam-results" style="display: none;">
+            <h3>Risk Analysis Results</h3>
+            <div class="risk-meter-container">
+              <div class="risk-meter">
+                <div class="risk-fill" id="riskFill"></div>
+              </div>
+              <div class="risk-percentage" id="riskPercentage">0%</div>
+            </div>
+            <div class="risk-verdict" id="riskVerdict">
+              <!-- Will be filled by JavaScript -->
+            </div>
+            <div class="risk-factors">
+              <h4>Risk Factors:</h4>
+              <ul id="riskFactorsList">
+                <!-- Will be filled by JavaScript -->
+              </ul>
+            </div>
+            <button id="reportScam" class="report-btn">Report a Dowry Case</button>
+            <div class="legal-resources">
+              <h4>Legal Resources:</h4>
+              <ul>
+                <li><a href="http://www.ncw.nic.in/" target="_blank">National Commission for Women</a></li>
+                <li><a href="https://www.indiacode.nic.in/handle/123456789/1679" target="_blank">Dowry Prohibition Act Information</a></li>
+                <li><a href="tel:1091" target="_blank">Women's Helpline: 1091 <i class="fas fa-phone-alt"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--dahej stories-->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">True tales, bold voices—real talk, no filter.</div>
+        <div class="tagline-line"></div>
+      </div>
+      <section id="dahej-stories" class="stories-section">
+        <div class="container">
+          <div class="header">
+              <h1>Dahej Stories</h1>
+              <p>Share and read experiences about dowry demands and celebrations</p>
+          </div>
+          <div class="decorative-border"></div>
+
+          <div class="story-form">
+              <h2 style="margin-bottom: 20px; color: #138086;">Share Your Story</h2>
+              <form id="storyForm">
+                  <div class="form-group">
+                      <label for="storyTitle">Title</label>
+                      <input type="text" id="storyTitle" class="form-control" placeholder="Give your story a title" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="storyContent">Your Story</label>
+                      <textarea id="storyContent" class="form-control" placeholder="Share your experience..." required></textarea>
+                  </div>
+                  <div class="form-group">
+                      <label for="storyCategory">Story Category</label>
+                      <select id="storyCategory" class="form-control" required>
+                          <option value="" disabled selected>Select a category</option>
+                          <option value="funny">Funny Demand</option>
+                          <option value="weird">Weird Demand</option>
+                          <option value="success">Success Story</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="authorName">Your Name (Optional)</label>
+                      <input type="text" id="authorName" class="form-control" placeholder="Anonymous">
+                  </div>
+                  <button type="submit" class="btn">Share Story</button>
+              </form>
+          </div>
+
+          <div class="tab-container">
+              <div class="tab-buttons">
+                  <button class="tab-btn active" data-category="all">All Stories</button>
+                  <button class="tab-btn" data-category="funny">Funny Demands</button>
+                  <button class="tab-btn" data-category="weird">Weird Demands</button>
+                  <button class="tab-btn" data-category="success">Success Stories</button>
+              </div>
+          </div>
+
+          <div class="stories-container">
+              <ul id="storyList" class="story-list">
+                  <!-- Stories will be populated here -->
+                  <div id="emptyState" class="empty-state">
+                      <h3>No stories yet</h3>
+                      <p>Be the first to share your experience!</p>
+                  </div>
+              </ul>
+          </div>
+        </div>
+      </section>
+ 
+<!-- Dahej Dialogue Simulator Section -->
+<div class="tagline-separator">
+  <div class="tagline-line"></div>
+  <div class="tagline-text">Chat with tradition... and roast it with logic.</div>
+  <div class="tagline-line"></div>
+</div>
+
+<section id="dialogue-simulator" class="dialogue-simulator-section">
+  <h2 class="section-title">Dahej Dialogue Simulator</h2>
+  <p class="subtitle">Experience a simulated conversation to understand dowry negotiation dynamics</p>
+  
+  <div class="dialogue-container">
+    <header class="dialogue-header">
+      <h3>Dahej Dialogue</h3>
+      <p class="dialogue-subtitle">A simulated marriage negotiation about dowry</p>
+    </header>
+
+    <div class="mode-selector">
+      <button id="bride-mode" class="mode-btn active">Bride's Family</button>
+      <button id="groom-mode" class="mode-btn">Groom's Family</button>
+    </div>
+
+    <div class="score-container">
+      <div class="score-display">
+        <span class="score-label">Negotiation Score:</span>
+        <div class="score-bar-container">
+          <div class="score-bar" id="negotiation-score"></div>
+        </div>
+        <span class="score-value" id="score-value">50</span>
+      </div>
+      <p class="score-message" id="negotiation-message">Neutral position - Keep negotiating</p>
+    </div>
+
+    <div class="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <!-- Messages will be inserted here via JavaScript -->
+      </div>
+      
+      <div class="message-input-container">
+        <textarea id="message-input" placeholder="Type your message here..."></textarea>
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+    <div class="dialogue-info">
+      <h3>About Dahej Dialogue</h3>
+      <p>This chatbot simulates marriage negotiations around dowry practices. Discuss, negotiate, and see how your approach affects the overall negotiation score.</p>
+      <p><strong>Note:</strong> This is an educational simulation. For legal advice or emergency situations related to dowry harassment, please contact local authorities or helplines.</p>
+    </div>
+  </div>
+</section>
+
+      <!-- Dowry Facts You Won't Believe Section -->
+      <div class="tagline-separator">
+        <div class="tagline-line"></div>
+        <div class="tagline-text">The cold, hard truth—spiced with satire.</div>
+        <div class="tagline-line"></div>
+      </div>
+<section class="shock-facts-section" id="shock-facts">
+  <h2>Dowry Facts You Won't Believe</h2>
+  <p class="subtitle">Shocking statistics and facts about dowry practices that will change your perspective</p>
+  
+  <div class="facts-slider-container">
+      <div class="facts-slider" id="factsSlider">
+          <!-- Fact Card 1 -->
+          <div class="fact-card severe">
+              <span class="fact-number">Fact #1</span>
+              <h3 class="fact-title">Dowry deaths still happen.</h3>
+              <div class="fact-stat">Over 6,900 dowry deaths reported in India in 2022.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">245</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">189</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">321</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+          <!-- Fact Card 2 -->
+          <div class="fact-card severe">
+              <span class="fact-number">Fact #2</span>
+              <h3 class="fact-title">One woman dies every hour due to dowry harassment.</h3>
+              <div class="fact-stat">National Crime Records Bureau data shows alarming frequency.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">312</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">278</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">405</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+          <!-- Fact Card 3 -->
+          <div class="fact-card moderate">
+              <span class="fact-number">Fact #3</span>
+              <h3 class="fact-title">Average dowry costs equal to 4 years of income.</h3>
+              <div class="fact-stat">Many families spend their life savings on dowry.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">187</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">142</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">203</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+          <!-- Fact Card 4 -->
+          <div class="fact-card moderate">
+              <span class="fact-number">Fact #4</span>
+              <h3 class="fact-title">Dowry complaints increased by 28% in the last decade.</h3>
+              <div class="fact-stat">Despite laws, the practice continues to grow.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">156</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">132</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">178</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+          <!-- Fact Card 5 -->
+          <div class="fact-card mild">
+              <span class="fact-number">Fact #5</span>
+              <h3 class="fact-title">Dowry is illegal but 93% of marriages still involve it.</h3>
+              <div class="fact-stat">Often disguised as "gifts" to circumvent the law.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">201</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">167</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">224</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+          <!-- Fact Card 6 -->
+          <div class="fact-card severe">
+              <span class="fact-number">Fact #6</span>
+              <h3 class="fact-title">Only 1 in 100 dowry harassment cases results in conviction.</h3>
+              <div class="fact-stat">Legal system struggles to protect victims effectively.</div>
+              <div class="fact-reactions">
+                  <button class="reaction-btn" data-reaction="shocked">
+                      😱 <span class="reaction-count">267</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="sad">
+                      😢 <span class="reaction-count">198</span>
+                  </button>
+                  <button class="reaction-btn" data-reaction="heartbroken">
+                      💔 <span class="reaction-count">312</span>
+                  </button>
+              </div>
+              <a href="https://en.wikipedia.org/wiki/Dowry_system_in_India" class="learn-more-link" target="_blank">Learn More</a>
+          </div>
+          
+      </div>
+      
+      <div class="slider-controls">
+          <button class="slider-btn" id="prevFact">
+              <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn" id="nextFact">
+              <i class="fas fa-chevron-right"></i>
+          </button>
+      </div>
+
+  </div>
+</section>
+   <!-- Personality Quiz Section -->
+       
+   <div class="tagline-separator">
+    <div class="tagline-line"></div>
+    <div class="tagline-text">Test your dahej Personality? let's go take the quiz now</div>
+    <div class="tagline-line"></div>
+  </div>
+        <section id="quiz" class="quiz-section">
+          <h2>What's Your Dowry Personality?</h2>
+          <p class="subtitle">Take this totally scientific quiz to discover your dowry persona!</p>
+          
+          <div class="quiz-container">
+            <div class="quiz-progress">
+              <div class="progress-fill" id="quizProgress"></div>
+            </div>
+            
+            <div id="quizContent">
+              <div class="quiz-start">
+                <h3>Ready to find out your dowry personality?</h3>
+                <p>Answer a few questions and discover if you're a Royal Groom, Budget Bride, or something else entirely!</p>
+                <button id="startQuiz" class="quiz-btn">Start Quiz</button>
+              </div>
+              
+              <div class="quiz-questions" style="display:none;">
+                <!-- Questions will be inserted by JavaScript -->
+              </div>
+              
+              <div class="quiz-result" style="display:none;">
+                <!-- Results will be displayed here -->
+              </div>
+            </div>
+            
+            <div class="share-quiz-result" style="display:none;">
+              <h3>Share your result!</h3>
+              <div class="share-buttons">
+                <button onclick="shareQuizResult('whatsapp')" class="share-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></button>
+                <button onclick="shareQuizResult('facebook')" class="share-btn facebook"><i class="fa-brands fa-facebook-f"></i></button>
+               
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+<!-- Add this before the footer section -->
+<!-- Terms of Use Overlay -->
+<div id="terms-overlay" class="legal-overlay">
+  <div class="terms-container">
+    <button class="close-terms-btn" aria-label="Close terms of use"><i class="fas fa-times"></i></button>
+    <div class="terms-header">
+      <h2>Terms of Use</h2>
+      <p class="terms-subtitle">Last Updated: April 2025</p>
+    </div>
+    
+    <div class="terms-content">
+      <div class="terms-intro">
+        <p>Welcome to <span class="highlight-text">Dowry Dollar Detector</span>. By accessing our website, you agree to these terms. If you disagree with any part, please do not use our site.</p>
+        <div class="terms-note">
+          <i class="fas fa-info-circle"></i>
+          <p>Unlike dowry agreements, these terms are <span class="highlight-text">fair to all parties</span> involved.</p>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up">
+        <div class="section-number">1</div>
+        <div class="section-content">
+          <h3>Educational Purpose</h3>
+          <p>This website is a <span class="highlight-text">satirical educational resource</span> designed to raise awareness about the harmful practice of dowry. All tools, calculators, and analyzers on this site are <span class="highlight-warning">fictional</span> and meant to highlight social issues through humor.</p>
+          
+          <div class="important-clause">
+            <h4><i class="fas fa-exclamation-triangle"></i> Important Disclaimer:</h4>
+            <p>No actual analysis of photos occurs, and all calculations are <span class="highlight-warning">randomly generated</span> for educational purposes only.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-number">2</div>
+        <div class="section-content">
+          <h3>User Conduct</h3>
+          <p>When using our website, you agree to:</p>
+          <ul class="terms-list">
+         
+            <li><i class="fas fa-check-circle"></i> Not promote or glorify dowry practices</li>
+            <li><i class="fas fa-check-circle"></i> Not attempt to manipulate, hack, or disrupt the website</li>
+            <li><i class="fas fa-check-circle"></i> Not use the website for any illegal purpose</li>
+            <li><i class="fas fa-check-circle"></i> Not impersonate any person or entity</li>
+          </ul>
+          
+          <div class="important-clause">
+            <h4><i class="fas fa-ban"></i> Zero Tolerance:</h4>
+            <p>Any content promoting or glorifying dowry practices will be <span class="highlight-warning">removed immediately</span>.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="section-number">3</div>
+        <div class="section-content">
+          <h3>Intellectual Property</h3>
+          <p>All content on this website, including text, graphics, logos, images, audio clips, and software, is the property of Dowry Dollar Detector and is protected by copyright and other intellectual property laws.</p>
+          <p>You may share and distribute our content for educational and awareness purposes, provided you <span class="highlight-text">attribute the source</span> appropriately.</p>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="300">
+        <div class="section-number">4</div>
+        <div class="section-content">
+          <h3>Third-Party Links</h3>
+          <p>Our website may contain links to third-party websites. These links are provided solely for your convenience. We have <span class="highlight-warning">no control</span> over the contents of those sites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="400">
+        <div class="section-number">5</div>
+        <div class="section-content">
+          <h3>Limitation of Liability</h3>
+          <p>The Dowry Dollar Detector website is provided on an <span class="highlight-warning">"as is" and "as available"</span> basis. We make no warranties, expressed or implied, regarding the operation or availability of the site.</p>
+          <p>We shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of or inability to use the website.</p>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="500">
+        <div class="section-number">6</div>
+        <div class="section-content">
+          <h3>Changes to Terms</h3>
+          <p>We may revise these Terms of Use at any time without notice. By continuing to use the website after those revisions become effective, you agree to be bound by the <span class="highlight-text">revised terms</span>.</p>
+        </div>
+      </div>
+      
+      <div class="terms-section" data-aos="fade-up" data-aos-delay="600">
+        <div class="section-number">7</div>
+        <div class="section-content">
+          <h3>Contact Us</h3>
+          <p>If you have any questions about these Terms of Use, please contact us at:</p>
+          <p>Email: <a href="mailto:nexlume.co@gmail.com" class="highlight-text" target="_blank">nexlume.co@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="terms-footer">
+      <button class="accept-terms-btn">I Understand and Accept</button>
+    </div>
+  </div>
+</div>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-main">
+            <div class="footer-logo">
+              <h3><a href="#hero" style="color: inherit; text-decoration: none;">Dahej Wale Babu</a></h3>
+              <p class="tagline">Exposing dowry through satire</p>
+            </div>
+            
+            <div class="footer-links">
+              <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                  <li><a href="#awareness">Dowry Awareness</a></li>
+                  <li><a href="#face-analyzer">Face Analyzer</a></li>
+                  <li><a href="#scam-alert">Scam Alert</a></li>
+                  <li><a href="#shock-facts">Shocking Facts</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-column">
+                <h4>Get Help</h4>
+                <ul>
+                  <li><a href="tel:1091" target="_blank">Women's Helpline: 1091</a></li>
+                  <li><a href="https://legalserviceindia.com/legal/article-7146-dowry-system-in-india.html" target="_blank">Legal Resources</a></li>
+                  <li><a href="https://www.cyberabadpolice.gov.in/women-corner/reporting-dowry-harassment.html" target="_blank">Report Dowry Case</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links">
+                  <a href="https://www.facebook.com" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.linkedin.com/in/amanmishra107/" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://www.instagram.com/nexlume" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-disclaimer">
+            <h4>Important Disclaimer</h4>
+            <p>This website is a satirical educational resource designed to raise awareness about the harmful practice of dowry. The content, including the "AI Face Analyzer" and "Dowry Calculator," is entirely fictional and meant to highlight social issues through humor. No actual analysis of photos occurs, and all calculations are randomly generated for educational purposes only.</p>
+            <p>If you or someone you know is experiencing dowry-related harassment or violence, please contact the Women's Helpline at 1091 or seek assistance from local authorities immediately.</p>
+          </div>
+          
+          <div class="footer-bottom">
+            <div class="copyright">
+              <p>&copy; 2025 Dahej Wale Babu. All rights reserved by <a href="https://web-production-8f65.up.railway.app/" target="_blank" style="color: #ff6b6b; text-decoration: none; font-weight: bold;">Nexlume</a>.</p>
+              <p>Created for educational and awareness purposes only. developed by <a href="https://www.linkedin.com/in/amanmishra107/" target="_blank" style="color: #4ecdc4; text-decoration: none; font-weight: bold;">Aman Mishra</a>.</p>
+            </div>
+            <div class="footer-legal-links">
+              <a href="#legal-pages" class="footer-legal-link" data-tab="terms" style="color: #6b66ff; text-decoration: none; font-weight: bold;">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="script.js"></script>
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-to-top">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  </body>
+</html>
