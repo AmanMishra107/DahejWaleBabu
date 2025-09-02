@@ -1,8 +1,9 @@
 
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&pause=1000&color=F78B33&center=true&vCenter=true&width=750&lines=DahejWaleBabu+-+Satirical+Dowry+Awareness" alt="Animated header" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&pause=1000&color=F78B33&center=true&vCenter=true&width=900&lines=DahejWaleBabu;Satirical+Dowry+Awareness" alt="Animated header" />
 </p>
+
 
 <p align="center">
   <img src="https://img.shields.io/github/license/AmanMishra107/DahejWaleBabu?style=for-the-badge" />
